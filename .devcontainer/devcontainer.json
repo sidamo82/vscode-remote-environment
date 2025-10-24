@@ -1,0 +1,71 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
+{
+	"name": "Universal + PHP Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces",
+    //"features": {
+      //  "ghcr.io/dotnet/aspire-devcontainer-feature/dotnetaspire:1": {}
+    //},
+    
+	"forwardPorts": [8073, 8074, 8080, 8082, 8084, 3306, 9003],
+	 "portsAttributes": {
+	 	"9003": {
+	 	"label": "Xdebug",
+	 	"protocol": "tcp"
+	 	},
+		"3306": {
+	 	"label": "MariaDB",
+	 	"protocol": "tcp"
+	 	},
+	 	"8073": {
+	 	"label": "Web Server - PHP7.3",
+	 	"protocol": "http"
+	 	},
+	 	"8074": {
+	 	"label": "Web Server - PHP7.4",
+	 	"protocol": "http"
+	 	},
+	 	"8080": {
+	 	"label": "Web Server - PHP8.0",
+	 	"protocol": "http"
+	 	},
+	 	"8082": {
+	 	"label": "Web Server - PHP8.2",
+	 	"protocol": "http"
+	 	},
+		"8084": {
+	 	"label": "Web Server - PHP8.4",
+	 	"protocol": "http"
+	 	}
+	 },
+	
+    
+	//ß"postCreateCommand": "composer install || true",
+    
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "felixfbecker.php-debug",
+                "bmewburn.vscode-intelephense-client",
+				"DEVSENSE.phptools-vscode"
+            ]
+        }
+    }
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
