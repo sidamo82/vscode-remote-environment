@@ -6,7 +6,7 @@ services:
     platform: linux/amd64
     container_name: devcontainer
     volumes:
-      - /home/ndamonti/localrepo:/workspaces:cached
+      - ${WORKSPACE_FOLDER:-/workspaces}:/workspaces:cached
     command: sleep infinity
     network_mode: service:nginx
     depends_on:
@@ -20,7 +20,7 @@ services:
     platform: linux/amd64
     container_name: php-fpm-73
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/php73/php.ini:/etc/php/7.3/fpm/conf.d/php.ini
     networks:
       - app_network
@@ -31,7 +31,7 @@ services:
     platform: linux/amd64
     container_name: php-fpm-74
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/php74/php.ini:/etc/php/7.4/fpm/conf.d/php.ini
     networks:
       - app_network
@@ -43,7 +43,7 @@ services:
     container_name: php-fpm-80
     restart: always
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/php80/php.ini:/usr/local/etc/php/conf.d/php.ini
     networks:
       - app_network
@@ -55,7 +55,7 @@ services:
     container_name: php-fpm-82
     restart: always
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/php82/php.ini:/usr/local/etc/php/conf.d/php.ini
     networks:
       - app_network
@@ -67,7 +67,7 @@ services:
     container_name: php-fpm-84
     restart: always
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/php84/php.ini:/usr/local/etc/php/conf.d/php.ini
     networks:
       - app_network
@@ -85,8 +85,14 @@ services:
        - "8084"
        - "3306"
     volumes:
-      - /home/ndamonti/localrepo:/var/www/html
+      - ${WORKSPACE_FOLDER:-/workspaces}:/var/www/html
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "8073:8073"
+      - "8074:8074"
+      - "8080:8080"
+      - "8082:8082"
+      - "8084:8084"
     depends_on:
       - php73
       - php74

@@ -1,0 +1,44 @@
+name: "php-multi-dev"
+display_name: "PHP Multi-Version Development"
+description: "Complete PHP development environment with multiple PHP versions (7.3-8.4), MariaDB, Nginx, and VS Code integration"
+icon_url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+default_ttl_ms: 28800000  # 8 hours
+max_ttl_ms: 86400000      # 24 hours
+allow_user_cancel_workspace_jobs: true
+
+parameters:
+  - name: cpu_cores
+    display_name: "CPU Cores"
+    description: "Number of CPU cores allocated to the workspace"
+    type: number
+    mutable: false
+    default_value: "2"
+    options:
+      - name: "1 Core"
+        value: "1"
+      - name: "2 Cores (Recommended)"
+        value: "2"
+      - name: "4 Cores"
+        value: "4"
+      - name: "6 Cores"
+        value: "6"
+      - name: "8 Cores"
+        value: "8"
+    
+  - name: memory_gb
+    display_name: "Memory (GB)"
+    description: "Amount of memory in GB allocated to the workspace"
+    type: number
+    mutable: false
+    default_value: "4"
+    options:
+      - name: "2 GB (Minimum)"
+        value: "2"
+      - name: "4 GB (Recommended)"
+        value: "4"
+      - name: "8 GB"
+        value: "8"
+      - name: "12 GB"
+        value: "12"
+      - name: "16 GB"
+        value: "16"
