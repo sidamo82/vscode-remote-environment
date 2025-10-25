@@ -1,8 +1,6 @@
 services:
   devcontainer:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: novigoconsulting/visualstudiocodedevcontainer
     platform: linux/amd64
     container_name: devcontainer
     volumes:
