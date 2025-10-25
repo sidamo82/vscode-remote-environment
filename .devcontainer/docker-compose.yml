@@ -4,7 +4,7 @@ services:
     platform: linux/amd64
     container_name: devcontainer
     volumes:
-      - /workspaces:/home/vscode:cached
+      - /home/coder:/home/vscode:cached
     command: sleep infinity
     network_mode: service:nginx
     depends_on:
