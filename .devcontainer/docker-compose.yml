@@ -4,7 +4,7 @@ services:
     platform: linux/amd64
     container_name: devcontainer
     volumes:
-      - /workspaces:/workspaces:cached
+      - /workspaces:/home/coder:cached
     command: sleep infinity
     network_mode: service:nginx
     depends_on:
